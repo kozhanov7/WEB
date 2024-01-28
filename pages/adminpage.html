@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Administrator panel</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-logo">TravelWorld</div>
+                <div class="nav-links">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/travelagency" class="nav-link">Management</a>
+                </div>
+            </nav>
+            <div class="header-inner">
+                <div class="header-title">Tours management</div>
+                <div class="header-forms">
+                    <div>
+                        <div class="form-name">Update price</div>
+                        <form id="updateForm">
+                            <label for="cityName">City Name:</label>
+                            <input type="text" id="cityName" name="cityName" required><br><br>
+                            <label for="newPrice">New Price:</label>
+                            <input type="number" id="newPrice" name="newPrice" required><br><br>
+                            <button type="submit">Update</button>
+                        </form>
+                        <p id="updateResult"></p>
+                    </div>
+                    <div>
+                        <div class="form-name">Delete tour</div>
+                        <form id="deleteForm">
+                            <label for="tourId">Tour ID:</label>
+                            <input type="number" id="tourId" name="tourId" required><br><br>
+                            <button type="submit">Delete</button>
+                        </form>
+                        <p id="deleteResult"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <footer class="footer">
+        <p>&copy; Kozhanov Sultangali SE-2208</p>
+    </footer>
+
+    <script>
+        async function updatePrice(event) {
+            event.preventDefault();
+            const cityName = document.getElementById("cityName").value;
+            const newPrice = +document.getElementById("newPrice").value;
+
+            const data = { cityName, newPrice };
+
+            try {
+                const response = await fetch('/travelagency', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                const resultDiv = document.getElementById("updateResult");
+                resultDiv.innerHTML = '';
+                resultDiv.innerHTML = result.message;
+                console.log(result.message);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        async function deleteTour(event) {
+            event.preventDefault();
+            const tourId = document.getElementById("tourId").value;
+
+            try {
+                const response = await fetch(`/travelagency/${tourId}`, {
+                    method: 'DELETE'
+                });
+                const result = await response.json();
+                const resultDiv = document.getElementById("deleteResult");
+                resultDiv.innerHTML = '';
+                resultDiv.innerHTML = result.message;
+                console.log(result.message);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        document.getElementById("updateForm").addEventListener("submit", updatePrice);
+        document.getElementById("deleteForm").addEventListener("submit", deleteTour);
+    </script>
+</body>
+</html>

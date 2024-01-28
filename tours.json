@@ -1,0 +1,239 @@
+{
+  "tours": [
+    {
+      "id": 1,
+      "country": "China",
+      "city": "Beijing",
+      "price": 120,
+      "privilege": [
+        "Jet",
+        "Transfer",
+        "Hotel",
+        "Great Wall Tour",
+        "Peking Duck Dinner"
+      ],
+      "reason": "Historical wonders and cultural richness"
+    },
+    {
+      "id": 2,
+      "country": "China",
+      "city": "Shanghai",
+      "price": 140,
+      "privilege": [
+        "Hotel",
+        "The Bund Exploration",
+        "Yuyuan Garden Visit",
+        "Shanghai Tower Observation"
+      ],
+      "reason": "Modern skyline and traditional gardens"
+    },
+    {
+      "id": 3,
+      "country": "China",
+      "city": "Xi'an",
+      "price": 110,
+      "privilege": [
+        "Hotel",
+        "Terracotta Army Tour",
+        "Ancient City Wall Walk",
+        "Muslim Quarter Discovery"
+      ],
+      "reason": "Ancient capital and archaeological wonders"
+    },
+    {
+      "id": 4,
+      "country": "Turkey",
+      "city": "Istanbul",
+      "price": 110,
+      "privilege": [
+        "Hotel",
+        "Blue Mosque Visit",
+        "Bosphorus Cruise",
+        "Grand Bazaar Shopping"
+      ],
+      "reason": "Blend of East and West, rich history"
+    },
+    {
+      "id": 5,
+      "country": "Turkey",
+      "city": "Ankara",
+      "price": 110,
+      "privilege": [
+        "Hotel",
+        "Ataturk Mausoleum Visit",
+        "Ankara Citadel Tour",
+        "Museum of Anatolian Civilizations"
+      ],
+      "reason": "Capital city with historical landmarks"
+    },
+    {
+      "id": 6,
+      "country": "Turkey",
+      "city": "Cappadocia",
+      "price": 150,
+      "privilege": [
+        "Hotel",
+        "Hot Air Balloon Ride",
+        "Goreme Open-Air Museum",
+        "Derinkuyu Underground City"
+      ],
+      "reason": "Unique landscapes and ancient caves"
+    },
+    {
+      "id": 7,
+      "country": "Turkey",
+      "city": "Antalya",
+      "price": 120,
+      "privilege": [
+        "Hotel",
+        "Perge and Aspendos Tour",
+        "Duden Waterfalls Visit",
+        "Old Town Exploration"
+      ],
+      "reason": "Turquoise coast and ancient ruins"
+    },
+    {
+      "id": 8,
+      "country": "UAE",
+      "city": "Dubai",
+      "price": 180,
+      "privilege": [
+        "Luxury Hotel",
+        "Burj Khalifa Tour",
+        "Desert Safari",
+        "Dhow Cruise Dinner"
+      ],
+      "reason": "Modern skyscrapers and desert adventures"
+    },
+    {
+      "id": 9,
+      "country": "UAE",
+      "city": "Abu Dhabi",
+      "price": 160,
+      "privilege": [
+        "Hotel",
+        "Sheikh Zayed Grand Mosque Visit",
+        "Ferrari World Experience",
+        "Emirates Palace Tour"
+      ],
+      "reason": "Capital city and cultural landmarks"
+    },
+    {
+      "id": 10,
+      "country": "Greece",
+      "city": "Athens",
+      "price": 130,
+      "privilege": [
+        "Hotel",
+        "Acropolis Museum Tour",
+        "Greek Cuisine Experience",
+        "Plaka District Stroll"
+      ],
+      "reason": "Ancient history and Mediterranean cuisine"
+    },
+    {
+      "id": 11,
+      "country": "Greece",
+      "city": "Santorini",
+      "price": 170,
+      "privilege": [
+        "Hotel",
+        "Oia Sunset View",
+        "Akrotiri Archaeological Site",
+        "Red Beach Relaxation"
+      ],
+      "reason": "Volcanic landscapes and romantic sunsets"
+    },
+    {
+      "id": 12,
+      "country": "Greece",
+      "city": "Crete",
+      "price": 140,
+      "privilege": [
+        "Hotel",
+        "Knossos Palace Tour",
+        "Elafonissi Beach Day",
+        "Samaria Gorge Hike"
+      ],
+      "reason": "Minoan ruins and stunning beaches"
+    },
+    {
+      "id": 13,
+      "country": "Kazakhstan",
+      "city": "Almaty",
+      "price": 100,
+      "privilege": [
+        "Hotel",
+        "Medeu Skating Rink Visit",
+        "Kok-Tobe Hill Excursion",
+        "Central State Museum Tour"
+      ],
+      "reason": "Mountainous landscapes and cultural heritage"
+    },
+    {
+      "id": 14,
+      "country": "Kazakhstan",
+      "city": "Nur-Sultan",
+      "price": 130,
+      "privilege": [
+        "Hotel",
+        "Astana Bayterek Tower",
+        "Khan Shatyr Entertainment Center",
+        "Palace of Peace and Reconciliation"
+      ],
+      "reason": "Modern capital and futuristic architecture"
+    },
+    {
+      "id": 15,
+      "country": "Kazakhstan",
+      "city": "Shymkent",
+      "price": 110,
+      "privilege": [
+        "Hotel",
+        "Mausoleum of Khoja Ahmed Yasawi",
+        "Kazakh Drama Theater",
+        "Arbat Street Walk"
+      ],
+      "reason": "Cultural diversity and historical landmarks"
+    },
+    {
+      "id": 16,
+      "country": "Kazakhstan",
+      "city": "Aktobe",
+      "price": 90,
+      "privilege": [
+        "Hotel",
+        "Aktobe Central Park",
+        "Victory Park",
+        "Regional History Museum"
+      ],
+      "reason": "City parks and historical museums"
+    },
+    {
+      "id": 17,
+      "country": "Egypt",
+      "city": "Cairo",
+      "price": 120,
+      "privilege": [
+        "Hotel",
+        "Pyramids of Giza Tour",
+        "Egyptian Museum Visit",
+        "Nile River Cruise"
+      ],
+      "reason": "Ancient wonders and rich history"
+    },
+    {
+      "id": 18,
+      "country": "Egypt",
+      "city": "Luxor",
+      "price": 150,
+      "privilege": [
+        "Hotel",
+        "Valley of the Kings Excursion",
+        "Karnak Temple Visit",
+        "Hot Air Balloon Ride"
+      ],
+      "reason": "Historical monuments along the Nile"
+    }
+  ]
+}

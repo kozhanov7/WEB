@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Travel Agency</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-logo">TravelWorld</div>
+                <div class="nav-links">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="adminpage.html" class="nav-link">Management</a>
+                </div>
+            </nav>
+            <div class="header-inner">
+                <div class="header-title">Select the tour you are interested in: </div>
+                <form class="travel-form" action="adminpage.html" method="POST">
+                    <div class="wrapper">
+                        <label for="country">Country:</label>
+                        <select id="country" name="country">
+                            <option value="">Select a country</option>
+                            <option value="China">China</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Greece">Greece</option>
+                            <option value="UAE">UAE</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Egypt">Egypt</option>
+                        </select><br><br>
+                    </div>
+
+                    <div class="wrapper">
+                        <label for="arrival">Date of Arrival:</label>
+                        <input type="date" id="arrival" name="arrival" required><br><br>
+                    </div>
+
+                    <div class="wrapper">
+                        <label for="departure">Date of Departure:</label>
+                        <input type="date" id="departure" name="departure" required><br><br>
+                    </div>
+
+                    <div class="wrapper">
+                        <label for="adults">Adults:</label>
+                        <input type="number" id="adults" name="adults" min="1" value="1" required><br><br>
+                    </div>
+
+                    <div class="wrapper">
+                        <label for="children">Children:</label>
+                        <input type="number" id="children" name="children" min="0" value="0" required><br><br>
+                    </div>
+
+                    <input type="button" value="Show" onclick="showTours()">
+                </form>
+
+                <div id="tourList">
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <footer class="footer">
+        <p>&copy; Kozhanov Sultangali SE-2208</p>
+    </footer>
+
+    <script>
+        async function showTours() {
+            const country = document.getElementById("country").value;
+            const arrivalDate = document.getElementById("arrival").value;
+            const departureDate = document.getElementById("departure").value;
+            const numberOfAdults = parseInt(document.getElementById("adults").value);
+            const numberOfChildren = parseInt(document.getElementById("children").value);
+
+            const dataToSend = {
+                country
+            }
+
+            try {
+                const response = await fetch("/travelagency", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataToSend)
+                });
+
+                const data = await response.json();
+
+                const tourListDiv = document.getElementById("tourList");
+                tourListDiv.innerHTML = '';
+
+                if (data.tours && data.tours.length > 0) {
+                    const days = Math.ceil((new Date(departureDate) - new Date(arrivalDate)) / (1000 * 60 * 60 * 24));
+                    const persons = numberOfAdults + numberOfChildren;
+                    data.tours.forEach(tour => {
+                        const price = (tour.price * (numberOfAdults + numberOfChildren * 0.5)) * Math.ceil(days * 0.3);
+
+                        const tourDiv = document.createElement("div");
+                        tourDiv.classList.add("tour");
+                        const divInfo = document.createElement("div");
+                        divInfo.classList.add("tour-info");
+                        divInfo.innerHTML = `<p class="tour-text">${tour.city}</p><p class="tour-text">${days} days</p><p class="tour-text">${persons} person</p>`;
+
+                        const divTitle = document.createElement("div");
+                        divTitle.classList.add("tour-title");
+                        divTitle.innerHTML = `${tour.reason}`;
+
+                        const divSubs = document.createElement("div");
+                        divSubs.classList.add("tour-subs");
+                        divSubs.innerHTML = `<div class="subs-section">${tour.privilege[0]} and ${tour.privilege.length-1} more</div><div class="subs-section"><span class="price">${price}</span></div>`;
+
+                        tourDiv.appendChild(divInfo);
+                        tourDiv.appendChild(divTitle);
+                        tourDiv.appendChild(divSubs);
+
+                        tourListDiv.appendChild(tourDiv);
+                });
+                } else {
+                    tourListDiv.textContent = 'No tours available for this country.';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+    </script>
+</body>
+</html>
